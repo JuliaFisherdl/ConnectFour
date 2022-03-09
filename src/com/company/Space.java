@@ -5,13 +5,12 @@ public class Space {
     private int taken;
 
     public Space() {
-        space = 'H';
+        space = '_';
         taken = 0;
     }
 
     public char getSpace() {
         return space;
-
     }
 
     public int getTaken() {
