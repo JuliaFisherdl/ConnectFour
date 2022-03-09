@@ -10,12 +10,14 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         int userInput=0;
         int turn = -1;
+        int moves = 0;
         boolean noWinner = true;
         //System.out.println("test");
 
 
-        while(noWinner){
+        while(noWinner && moves <50){
             turn=turn*-1;
+            moves++;
             board.outputBoard();
             do{
                 try{
@@ -33,10 +35,11 @@ public class Main {
             userInput--;
             board.playerMove(userInput);
             noWinner = !board.checkBoard(1);
-            if(!noWinner)
+            if(!noWinner || moves == 50)
                 break;
 
             turn=turn*-1;
+            moves++;
             board.computerMove();
             noWinner = !board.checkBoard(2);
 
@@ -45,9 +48,13 @@ public class Main {
         }
 
         board.outputBoard();
-        if(turn==1){
+        if(moves == 50){
+            System.out.println("Tie game, no winner.");
+        }
+        else if(turn==1){
             System.out.println("You won! Contrats!");
-        } else {
+        }
+        else {
             System.out.println("Sorry, the random computer won.");
         }
 
