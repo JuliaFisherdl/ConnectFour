@@ -5,7 +5,7 @@ public class Space {
     private int taken;
 
     public Space() {
-        space = '.';
+        space = 'H';
         taken = 0;
     }
 
